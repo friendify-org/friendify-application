@@ -1,4 +1,3 @@
-import 'package:application/screens/ask/main.dart';
 import 'package:application/screens/main.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Friendify',
-      home: AskScreen(),
-      routes: routes,
+      routes: routeBuilder(),
+      initialRoute: RouteNames.splash,
       theme: ThemeData(
         brightness: Brightness.light,
         /* light theme settings */

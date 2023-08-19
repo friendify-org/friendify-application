@@ -1,10 +1,10 @@
 import 'package:application/theme/main.dart';
 import 'package:application/widgets/button.dart';
+import 'package:application/screens/home/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 class AppContainer extends StatelessWidget {
   final Widget child;
-
   const AppContainer({super.key, required this.child});
 
   @override
@@ -15,7 +15,7 @@ class AppContainer extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(gradient: AppTheme.theme.backgroundColor),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: BouncingScrollPhysics(parent: NeverScrollableScrollPhysics()),
           child: AppButtonTheme(
             buttonTheme: AppTheme.theme.primaryButtonTheme,
             child: child,
