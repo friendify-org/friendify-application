@@ -81,7 +81,7 @@ class _WellcomeState extends State<Wellcome> {
                 height: 50,
                 child: AppButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(RouteNames.auth);
+                    Navigator.of(context).pushNamed(RouteNames.home);
                   },
                   child: const H10(content: "Start Now"),
                 ),

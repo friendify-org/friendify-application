@@ -178,7 +178,7 @@ class Overline extends StatelessWidget {
         fontWeight: FontWeight.w400,
         fontFamily: 'Inter',
         color: AppTheme.theme.secondaryTextColor,
-      ),
+      ).merge(style),
     );
   }
 }

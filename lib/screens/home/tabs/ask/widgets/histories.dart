@@ -1,6 +1,6 @@
-import 'package:application/screens/ask/widgets/history.dart';
+import 'package:application/screens/home/tabs/ask/widgets/history.dart';
 import 'package:application/widgets/main.dart';
-import 'package:application/widgets/schema/history.dart';
+import 'package:application/schema/history.dart';
 import 'package:flutter/material.dart';
 
 class HistoriesWidget extends StatelessWidget {
@@ -19,14 +19,18 @@ class HistoriesWidget extends StatelessWidget {
             Overline(content: "See all"),
           ],
         ),
-        const SizedBox(height: 20),
-        SingleChildScrollView(
-          child: Column(children: [
-            ...histories.map((history) {
-              return HistoryWidget(data: history);
-            })
-          ],),
-        )
+        SizedBox(height: 20),
+        Expanded(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(children: [
+              ...histories.map((history) {
+                return HistoryWidget(data: history);
+              }),
+              Container(height: 200),
+            ]),
+          ),
+        ),
       ],
     );
   }

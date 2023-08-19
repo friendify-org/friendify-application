@@ -44,4 +44,9 @@ final lightTheme = t.AppTheme(
     textColor: ColorPalette.greys[6],
   ),
   hrefColor: ColorPalette.primary[5],
+  navbarTheme: t.NavbarTheme(
+    itemColor: ColorPalette.greys[3],
+    activeItemColor: ColorPalette.lights[1],
+    backgroundColor: ColorPalette.primaryWhite,
+  ),
 );
