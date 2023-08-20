@@ -1,4 +1,5 @@
 import 'package:application/screens/home/tabs/ask/main.dart';
+import 'package:application/screens/home/tabs/chat/main.dart';
 import 'package:flutter/material.dart';
 
 class TabNames {
@@ -12,6 +13,8 @@ Widget generateTab(String tabName) {
   switch(tabName) {
     case TabNames.ask:
       return const AskTab();
+    case TabNames.chat:
+      return const ChatTab();
     default:
       return const AskTab();
   }

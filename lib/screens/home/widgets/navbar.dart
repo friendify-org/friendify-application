@@ -47,21 +47,43 @@ class Navbar extends StatefulWidget {
 
 class _NavbarState extends State<Navbar> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    widget.controller.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     List<NavItem> items = [
       NavItem(
-          href: TabNames.ask, label: "Ask", assets: "assets/navbar/ask.svg", controller: widget.controller,),
+        href: TabNames.ask,
+        label: "Ask",
+        assets: "assets/navbar/ask.svg",
+        controller: widget.controller,
+      ),
       NavItem(
-          href: TabNames.chat, label: "Chat", assets: "assets/navbar/chat.svg", controller: widget.controller,),
+        href: TabNames.chat,
+        label: "Chat",
+        assets: "assets/navbar/chat.svg",
+        controller: widget.controller,
+      ),
       NavItem(
-          href: TabNames.feed, label: "Feed", assets: "assets/navbar/feed.svg", controller: widget.controller,),
+        href: TabNames.feed,
+        label: "Feed",
+        assets: "assets/navbar/feed.svg",
+        controller: widget.controller,
+      ),
       NavItem(
-          href: TabNames.assits, label: "Assits", assets: "assets/navbar/assits.svg", controller: widget.controller,),
+        href: TabNames.assits,
+        label: "Assits",
+        assets: "assets/navbar/assits.svg",
+        controller: widget.controller,
+      ),
     ];
 
-    widget.controller.addListener((){
-      setState(() {});
-    });
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -99,12 +121,5 @@ class NavbarController extends ChangeNotifier {
   set changeRoute(String routeName) {
     currentRoute = routeName;
     notifyListeners();
-  }
-
-  @override
-  void addListener(VoidCallback listener) {
-    // TODO: implement addListener
-    if(hasListeners) return;
-    super.addListener(listener);
   }
 }

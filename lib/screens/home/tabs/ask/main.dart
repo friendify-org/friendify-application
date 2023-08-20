@@ -42,7 +42,7 @@ class AskTab extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 50),
+        SizedBox(height: 20),
         Expanded(
           child: HistoriesWidget(
             histories: histories,
