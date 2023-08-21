@@ -18,7 +18,7 @@ class SecondaryHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const GoBackButton(),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               child,
             ],
           ),

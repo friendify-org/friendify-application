@@ -11,8 +11,8 @@ class AppContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(gradient: AppTheme.theme.backgroundColor),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(parent: NeverScrollableScrollPhysics()),

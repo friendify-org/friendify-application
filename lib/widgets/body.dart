@@ -111,7 +111,10 @@ class BodyMedium extends StatelessWidget {
 }
 
 class BodyNormal extends BodyText {
-  const BodyNormal({super.key, required super.content});
+
+  final TextStyle? textStyle;
+
+  const BodyNormal({super.key, required super.content, this.textStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +127,7 @@ class BodyNormal extends BodyText {
         fontWeight: FontWeight.w400,
         fontFamily: 'Inter',
         color: bodyTheme?.color ?? AppTheme.theme.primaryTextColor,
-      ),
+      ).merge(textStyle),
     );
   }
 
