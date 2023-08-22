@@ -59,4 +59,6 @@ class ColorPalette {
 
   static const blackPrimary = Color(0xFF000000);
   static const blackSecondary50 = Color(0xFF8f8f8f);
+
+  static const redAlert = Color(0xFFDC362E);
 }

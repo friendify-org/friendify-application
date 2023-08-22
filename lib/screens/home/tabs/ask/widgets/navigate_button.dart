@@ -10,12 +10,13 @@ class NavigateButton extends StatelessWidget {
   final String content;
   final String url;
 
-  const NavigateButton(
-      {super.key,
-      required this.asset,
-      required this.title,
-      required this.content,
-      required this.url});
+  const NavigateButton({
+    super.key,
+    required this.asset,
+    required this.title,
+    required this.content,
+    required this.url,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +34,7 @@ class NavigateButton extends StatelessWidget {
           )
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SvgPicture.asset(asset),
         H11(content: title),
         SizedBox(height: 10),

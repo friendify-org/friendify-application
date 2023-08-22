@@ -44,4 +44,10 @@ final darkTheme = t.AppTheme(
     textColor: ColorPalette.greys[3],
   ),
   hrefColor: ColorPalette.primary[5],
+  navbarTheme: t.NavbarTheme(
+    itemColor: ColorPalette.darks[0],
+    activeItemColor: ColorPalette.primary[0],
+    backgroundColor: ColorPalette.darks[1],
+  ),
+  alert: ColorPalette.redAlert
 );

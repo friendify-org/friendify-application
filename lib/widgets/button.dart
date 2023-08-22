@@ -1,5 +1,6 @@
 import 'package:application/theme/main.dart' as t;
 import 'package:application/widgets/heading.dart';
+import 'package:application/widgets/svg.dart';
 import 'package:flutter/material.dart';
 
 class AppButtonTheme extends InheritedWidget {
@@ -57,6 +58,25 @@ class AppButton extends StatelessWidget {
             child: child,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class GoBackButton extends StatelessWidget {
+  const GoBackButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pop();
+      },
+      child: SvgWidget(
+        asset: "assets/images/chevron_back.svg",
+        color: t.AppTheme.theme.primaryTextColor,
+        width: 24,
+        height: 24,
       ),
     );
   }

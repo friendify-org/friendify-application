@@ -1,6 +1,6 @@
 import 'package:application/theme/main.dart';
 import 'package:application/widgets/main.dart';
-import 'package:application/widgets/schema/history.dart';
+import 'package:application/schema/history.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';

@@ -53,6 +53,19 @@ class CheckBoxTheme {
   });
 }
 
+@immutable
+class NavbarTheme {
+  final material.Color backgroundColor;
+  final material.Color itemColor;
+  final material.Color activeItemColor;
+
+  const NavbarTheme({
+    required this.backgroundColor,
+    required this.itemColor,
+    required this.activeItemColor,
+  });
+}
+
 var brightness = SchedulerBinding.instance.window.platformBrightness;
 
 @immutable
@@ -68,6 +81,8 @@ class AppTheme {
   final TabButtonTheme tabButtonTheme;
   final InputTheme inputTheme;
   final CheckBoxTheme checkBoxTheme;
+  final NavbarTheme navbarTheme;
+  final material.Color alert;
 
   const AppTheme({
     required this.primaryTextColor,
@@ -81,6 +96,8 @@ class AppTheme {
     required this.inputTheme,
     required this.checkBoxTheme,
     required this.hrefColor,
+    required this.navbarTheme,
+    required this.alert,
   });
 
   static AppTheme get theme {
