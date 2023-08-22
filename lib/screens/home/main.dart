@@ -2,6 +2,8 @@ import 'package:application/screens/home/tabs/main.dart';
 import 'package:application/widgets/container.dart';
 import 'package:application/screens/home/widgets/navbar.dart';
 import 'package:application/widgets/header.dart';
+import 'package:application/widgets/heading.dart';
+import 'package:application/widgets/secondary_header.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
