@@ -49,4 +49,5 @@ final lightTheme = t.AppTheme(
     activeItemColor: ColorPalette.lights[1],
     backgroundColor: ColorPalette.primaryWhite,
   ),
+  alert: ColorPalette.redAlert
 );

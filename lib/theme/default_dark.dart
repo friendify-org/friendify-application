@@ -49,4 +49,5 @@ final darkTheme = t.AppTheme(
     activeItemColor: ColorPalette.primary[0],
     backgroundColor: ColorPalette.darks[1],
   ),
+  alert: ColorPalette.redAlert
 );
