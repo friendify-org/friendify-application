@@ -82,6 +82,7 @@ class AppTheme {
   final InputTheme inputTheme;
   final CheckBoxTheme checkBoxTheme;
   final NavbarTheme navbarTheme;
+  final material.Color alert;
 
   const AppTheme({
     required this.primaryTextColor,
@@ -95,7 +96,8 @@ class AppTheme {
     required this.inputTheme,
     required this.checkBoxTheme,
     required this.hrefColor,
-    required this.navbarTheme
+    required this.navbarTheme,
+    required this.alert,
   });
 
   static AppTheme get theme {

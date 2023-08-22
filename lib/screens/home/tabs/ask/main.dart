@@ -66,7 +66,7 @@ final List<History> histories = [
       createdAt: DateTime.now()),
   History(
       id: "2",
-      question: "What's the best way to learn a new language?",
+      question: "What's the best ",
       answer: "The best way to learn a new language depends..",
       createdAt: DateTime.now()),
   History(
@@ -81,7 +81,7 @@ final List<History> histories = [
       createdAt: DateTime.now()),
   History(
       id: "2",
-      question: "What's the best way to learn a new language?",
+      question: "What's the best way",
       answer: "The best way to learn a new language depends..",
       createdAt: DateTime.now()),
   History(
@@ -96,7 +96,7 @@ final List<History> histories = [
       createdAt: DateTime.now()),
   History(
       id: "2",
-      question: "What's the best way to learn a new language?",
+      question: "What's the best wa",
       answer: "The best way to learn a new language depends..",
       createdAt: DateTime.now()),
   History(
@@ -111,7 +111,7 @@ final List<History> histories = [
       createdAt: DateTime.now()),
   History(
       id: "2",
-      question: "What's the best way to learn a new language?",
+      question: "What's the best ",
       answer: "The best way to learn a new language depends..",
       createdAt: DateTime.now()),
   History(
@@ -126,7 +126,7 @@ final List<History> histories = [
       createdAt: DateTime.now()),
   History(
       id: "2",
-      question: "What's the best way to learn a new language?",
+      question: "What's the best",
       answer: "The best way to learn a new language depends..",
       createdAt: DateTime.now()),
 ];

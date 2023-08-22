@@ -21,6 +21,7 @@ class SvgWidget extends StatelessWidget {
       colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
       width: width,
       height: height,
+      fit: BoxFit.scaleDown
     );
   }
 }

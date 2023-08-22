@@ -2,6 +2,7 @@ import 'package:application/screens/auth/forgot_password.dart';
 import 'package:application/screens/auth/main.dart';
 import 'package:application/screens/auth/reset_password.dart';
 import 'package:application/screens/auth/verify_code.dart';
+import 'package:application/screens/histories/main.dart';
 import 'package:application/screens/home/main.dart';
 import 'package:application/screens/wellcome/main.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class RouteNames {
   static const home = "home";
   static const ask = "ask";
   static const chat = "chat";
+  static const histories = "histories";
 }
 
 final Map<String, Widget> routes = {
@@ -24,6 +26,7 @@ final Map<String, Widget> routes = {
   RouteNames.confirm: const VerifyCodeScreen(),
   RouteNames.resetPassword: const ResetPasswordScreen(),
   RouteNames.home: const HomeScreen(),
+  RouteNames.histories: const HistoriesScreen(),
 };
 
 Map<String, Widget Function(BuildContext)> routeBuilder() {
