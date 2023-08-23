@@ -1,3 +1,4 @@
+import 'package:application/screens/main.dart';
 import 'package:application/theme/main.dart';
 import 'package:application/widgets/heading.dart';
 import 'package:application/widgets/main.dart';
@@ -20,35 +21,40 @@ class NavigateButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        gradient: AppTheme.theme.backgroundColor,
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0x26000000),
-            blurRadius: 15,
-            offset: Offset(2, 2),
-            spreadRadius: 0,
-          )
-        ],
-      ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        SvgPicture.asset(asset),
-        H11(content: title),
-        SizedBox(height: 10),
-        BodyTheme(
-          color: AppTheme.theme.hrefColor,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              BodySmall(content: content),
-              SvgPicture.asset("assets/images/chevron-right.svg")
-            ],
-          ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(RouteNames.aiChat);
+      },
+      child: Container(
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          gradient: AppTheme.theme.backgroundColor,
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x26000000),
+              blurRadius: 15,
+              offset: Offset(2, 2),
+              spreadRadius: 0,
+            )
+          ],
         ),
-      ]),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          SvgPicture.asset(asset),
+          H11(content: title),
+          SizedBox(height: 10),
+          BodyTheme(
+            color: AppTheme.theme.hrefColor,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                BodySmall(content: content),
+                SvgPicture.asset("assets/images/chevron-right.svg")
+              ],
+            ),
+          ),
+        ]),
+      ),
     );
   }
 }

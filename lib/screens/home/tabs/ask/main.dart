@@ -33,7 +33,7 @@ class AskTab extends StatelessWidget {
                 asset: "assets/images/chat_navigate.svg",
                 content: 'Start new chat',
                 title: 'AI Chat',
-                url: '',
+                url: 'ai_chat',
               ),
             ),
             SizedBox(width: 10,),
