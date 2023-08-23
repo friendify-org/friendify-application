@@ -18,7 +18,7 @@ class AppHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/images/logo_horizontal.jpeg", width: 300),
+              Image.asset("assets/images/logo_horizontal.jpeg", height: 30,),
               const DiamondWidget(),
             ],
           ),
