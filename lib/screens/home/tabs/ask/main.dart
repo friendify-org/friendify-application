@@ -26,19 +26,24 @@ class AskTab extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            NavigateButton(
-              asset: "assets/images/chat_navigate.svg",
-              content: 'Start new chat',
-              title: 'AI Chat',
-              url: '',
+            Expanded(
+              child: NavigateButton(
+                asset: "assets/images/chat_navigate.svg",
+                content: 'Start new chat',
+                title: 'AI Chat',
+                url: '',
+              ),
             ),
-            SizedBox(width: 20),
-            NavigateButton(
-              asset: "assets/images/image_navigate.svg",
-              title: "Ai Generate Image",
-              content: "Create new",
-              url: "",
+            SizedBox(width: 10,),
+            Expanded(
+              child: NavigateButton(
+                asset: "assets/images/image_navigate.svg",
+                title: "Ai Generate Image",
+                content: "Create new",
+                url: "",
+              ),
             ),
           ],
         ),

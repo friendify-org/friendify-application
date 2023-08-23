@@ -1,79 +1,112 @@
 import 'package:application/theme/main.dart';
+import 'package:application/widgets/input.dart';
+import 'package:application/widgets/main.dart';
 import 'package:application/widgets/svg.dart';
 import 'package:flutter/material.dart';
 
 class AppSearchBar extends StatefulWidget {
-  final bool expanded;
   final Duration duration; // Default is 1 seconds;
+  final double collapsedSize;
+  final double expanedSize;
+  final Curve curve;
 
-  const AppSearchBar(
-      {super.key,
-      this.expanded = false,
-      this.duration = const Duration(seconds: 1)});
+  const AppSearchBar({
+    super.key,
+    this.duration = const Duration(milliseconds: 800),
+    this.collapsedSize = 30,
+    this.expanedSize = double.infinity,
+    this.curve = Curves.ease,
+  });
 
   @override
   State<AppSearchBar> createState() => _AppSearchBarState();
 }
 
-class _AppSearchBarState extends State<AppSearchBar>
-    with TickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    duration: widget.duration,
-    vsync: this,
-  );
-  late final Animation<double> _animation = CurvedAnimation(
-    parent: _controller,
-    curve: Curves.easeInOutQuart,
-  );
-
-  bool _expanded = false;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _expanded = widget.expanded;
-    _controller.forward();
-  }
+class _AppSearchBarState extends State<AppSearchBar> {
+  late double _width = widget.collapsedSize;
+  late Color _backgroundColor = Colors.transparent;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          _expanded = !_expanded;
-          // _controller.forward(from: _expanded ? 1.0 : 0.0);
-          if (!_expanded) {
-            _controller.reverse(from: 1);
+          if (_width == widget.collapsedSize) {
+            _width = widget.expanedSize;
+            _backgroundColor = AppTheme.theme.inputTheme.backgroundColor;
           } else {
-            _controller.forward(from: 0);
+            _width = widget.collapsedSize;
+            _backgroundColor = Colors.transparent;
           }
         });
       },
       child: AnimatedSize(
-        curve: Curves.bounceIn,
+        curve: widget.curve,
         duration: widget.duration,
-        child: _layoutBuilder(),
+        child: SizedBox(
+          width: _width,
+          child: AnimatedContainer(
+            padding: EdgeInsets.all(0),
+            decoration: BoxDecoration(
+              color: _backgroundColor,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            duration: widget.duration,
+            child: _layoutBuilder(),
+          ),
+        ),
       ),
     );
   }
 
   Widget _layoutBuilder() {
-    return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints){
-      return _collapsedChildBuilder(context);
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      if (constraints.maxWidth == widget.collapsedSize) {
+        return SizedBox(
+          child: _collapsedChildBuilder(context),
+          width: constraints.maxWidth,
+        );
+      } else {
+        return SizedBox(
+          child: _expandedChildBuilder(context),
+          width: constraints.maxWidth,
+        );
+      }
     });
   }
 
   Widget _expandedChildBuilder(BuildContext context) {
-    return Container(height: 20, color: Colors.red);
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              hintText: "Search...",
+              hintStyle: BodySmall.style
+                  .copyWith(color: AppTheme.theme.inputTheme.placeHolderColor),
+            ),
+            style: BodySmall.style
+                .copyWith(color: AppTheme.theme.inputTheme.primaryTextColor),
+          ),
+        ),
+        _collapsedChildBuilder(context),
+        SizedBox(width: 10),
+      ],
+    );
   }
 
   Widget _collapsedChildBuilder(BuildContext context) {
     return Container(
-      width: double.infinity,
       child: SvgWidget(
-          asset: "assets/images/search.svg",
-          color: AppTheme.theme.primaryTextColor),
+        asset: "assets/images/search.svg",
+        color: AppTheme.theme.primaryTextColor,
+        width: 24,
+        height: 24,
+      ),
     );
   }
 }

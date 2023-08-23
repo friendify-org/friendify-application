@@ -41,9 +41,9 @@ class NavigateButton extends StatelessWidget {
         BodyTheme(
           color: AppTheme.theme.hrefColor,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               BodySmall(content: content),
-              SizedBox(width: 30),
               SvgPicture.asset("assets/images/chevron-right.svg")
             ],
           ),
