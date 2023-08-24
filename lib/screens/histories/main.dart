@@ -14,11 +14,8 @@ class HistoriesScreen extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         child: const Column(
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: SecondaryHeader(
-                child: H8(content: "AI Chat"),
-              ),
+            SecondaryHeader(
+              child: H8(content: "History"),
             ),
             Expanded(child: Histories()),
           ],

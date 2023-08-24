@@ -15,7 +15,7 @@ class AppContainer extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(gradient: AppTheme.theme.backgroundColor),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(parent: NeverScrollableScrollPhysics()),
+          physics: const BouncingScrollPhysics(parent: NeverScrollableScrollPhysics()),
           child: AppButtonTheme(
             buttonTheme: AppTheme.theme.primaryButtonTheme,
             child: child,
