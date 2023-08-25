@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:application/theme/color_palette.dart';
 import 'package:flutter/material.dart';
+
 import 'main.dart' as t;
 
 final lightTheme = t.AppTheme(
@@ -49,5 +48,30 @@ final lightTheme = t.AppTheme(
     activeItemColor: ColorPalette.lights[1],
     backgroundColor: ColorPalette.primaryWhite,
   ),
-  alert: ColorPalette.redAlert
+  alert: ColorPalette.redAlert,
+  ownerMessageTheme: t.MessageTheme(
+    backgroundColor: ColorPalette.lights[3],
+    textColor: ColorPalette.greys[9],
+  ),
+  chatFooterTheme: t.ChatFooterTheme(
+    inputTheme: t.InputTheme(
+      backgroundColor: ColorPalette.blackPrimary10,
+      placeHolderColor: ColorPalette.blackPrimary50,
+      primaryTextColor: ColorPalette.blackPrimary90,
+      errorTextColor: ColorPalette.lights[7],
+    ),
+    primaryButtonTheme: const t.ButtonTheme(
+      textColor: ColorPalette.primaryWhite,
+      backgroundColor: ColorPalette.linearButton,
+    ),
+    secondaryButtonTheme: t.ButtonTheme(
+      textColor: ColorPalette.blackPrimary,
+      backgroundColor: LinearGradient(
+        colors: [
+          ColorPalette.greys[6],
+          ColorPalette.greys[6],
+        ],
+      ),
+    ),
+  ),
 );

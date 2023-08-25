@@ -3,7 +3,9 @@ import 'package:application/theme/default_light.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' as material;
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/widgets.dart';
 
+@immutable
 class TextTheme {
   final material.Color primaryColor;
   final material.Color secondaryColor;
@@ -69,6 +71,27 @@ class NavbarTheme {
 var brightness = SchedulerBinding.instance.window.platformBrightness;
 
 @immutable
+class MessageTheme {
+  final material.Color backgroundColor;
+  final material.Color textColor;
+
+  const MessageTheme({required this.backgroundColor, required this.textColor});
+}
+
+@immutable
+class ChatFooterTheme {
+  final InputTheme inputTheme;
+  final ButtonTheme primaryButtonTheme;
+  final ButtonTheme secondaryButtonTheme;
+
+  const ChatFooterTheme({
+    required this.inputTheme,
+    required this.primaryButtonTheme,
+    required this.secondaryButtonTheme,
+  });
+}
+
+@immutable
 class AppTheme {
   final material.Color primaryTextColor;
   final material.Color primaryTitleColor;
@@ -83,6 +106,8 @@ class AppTheme {
   final CheckBoxTheme checkBoxTheme;
   final NavbarTheme navbarTheme;
   final material.Color alert;
+  final MessageTheme ownerMessageTheme;
+  final ChatFooterTheme chatFooterTheme;
 
   const AppTheme({
     required this.primaryTextColor,
@@ -98,6 +123,8 @@ class AppTheme {
     required this.hrefColor,
     required this.navbarTheme,
     required this.alert,
+    required this.ownerMessageTheme,
+    required this.chatFooterTheme,
   });
 
   static AppTheme get theme {

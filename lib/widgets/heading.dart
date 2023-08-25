@@ -203,8 +203,9 @@ class H10 extends StatelessWidget {
 
 class H11 extends StatelessWidget {
   final String content;
+  final TextStyle? style;
 
-  const H11({super.key, required this.content});
+  const H11({super.key, required this.content, this.style});
 
   @override
   Widget build(BuildContext context) {
@@ -217,7 +218,15 @@ class H11 extends StatelessWidget {
         fontSize: 14,
         fontWeight: FontWeight.w700,
         color: textTheme?.color ?? t.AppTheme.theme.primaryTextColor,
-      ),
+      ).merge(style),
+    );
+  }
+
+  static TextStyle get textStyle {
+    return const TextStyle(
+      fontFamily: 'Montserrat',
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
     );
   }
 }

@@ -142,7 +142,8 @@ class BodyNormal extends BodyText {
 
 @immutable
 class BodySmall extends BodyText {
-  const BodySmall({super.key, required super.content});
+  final TextStyle? style;
+  const BodySmall({super.key, required super.content, this.style});
 
   @override
   Widget build(BuildContext context) {
@@ -154,11 +155,11 @@ class BodySmall extends BodyText {
         fontWeight: FontWeight.w400,
         fontFamily: 'Inter',
         color: bodyTheme?.color ?? AppTheme.theme.primaryTextColor,
-      ),
+      ).merge(style),
     );
   }
 
-  static TextStyle get style {
+  static TextStyle get textStyle {
     return const TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w400,
@@ -201,7 +202,7 @@ class HintText extends StatelessWidget {
   }
 
   static TextStyle get style {
-    return BodySmall.style.copyWith(
+    return BodySmall.textStyle.copyWith(
       color: AppTheme.theme.inputTheme.placeHolderColor,
     );
   }

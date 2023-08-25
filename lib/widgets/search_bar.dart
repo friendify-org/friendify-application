@@ -1,5 +1,4 @@
 import 'package:application/theme/main.dart';
-import 'package:application/widgets/input.dart';
 import 'package:application/widgets/main.dart';
 import 'package:application/widgets/svg.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +45,7 @@ class _AppSearchBarState extends State<AppSearchBar> {
         child: SizedBox(
           width: _width,
           child: AnimatedContainer(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             decoration: BoxDecoration(
               color: _backgroundColor,
               borderRadius: BorderRadius.circular(20),
@@ -64,13 +63,13 @@ class _AppSearchBarState extends State<AppSearchBar> {
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxWidth == widget.collapsedSize) {
         return SizedBox(
-          child: _collapsedChildBuilder(context),
           width: constraints.maxWidth,
+          child: _collapsedChildBuilder(context),
         );
       } else {
         return SizedBox(
-          child: _expandedChildBuilder(context),
           width: constraints.maxWidth,
+          child: _expandedChildBuilder(context),
         );
       }
     });
@@ -86,15 +85,15 @@ class _AppSearchBarState extends State<AppSearchBar> {
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
               hintText: "Search...",
-              hintStyle: BodySmall.style
+              hintStyle: BodySmall.textStyle
                   .copyWith(color: AppTheme.theme.inputTheme.placeHolderColor),
             ),
-            style: BodySmall.style
+            style: BodySmall.textStyle
                 .copyWith(color: AppTheme.theme.inputTheme.primaryTextColor),
           ),
         ),
         _collapsedChildBuilder(context),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
       ],
     );
   }

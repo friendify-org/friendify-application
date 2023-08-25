@@ -94,7 +94,7 @@ class _AppInputState extends State<AppInput> {
             ),
             contentPadding: const EdgeInsets.all(18),
           ),
-          style: BodySmall.style.copyWith(
+          style: BodySmall.textStyle.copyWith(
             color: AppTheme.theme.inputTheme.primaryTextColor,
           ),
         ),
@@ -103,7 +103,7 @@ class _AppInputState extends State<AppInput> {
                 padding: const EdgeInsets.all(10),
                 child: Text(
                   widget.controller.errorText,
-                  style: (widget.errorStyle ?? BodySmall.style).copyWith(
+                  style: (widget.errorStyle ?? BodySmall.textStyle).copyWith(
                     color: AppTheme.theme.inputTheme.errorTextColor,
                   ),
                 ),
