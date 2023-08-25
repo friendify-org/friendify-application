@@ -1,3 +1,4 @@
+import 'package:application/screens/ai_chat/main.dart';
 import 'package:application/screens/auth/forgot_password.dart';
 import 'package:application/screens/auth/main.dart';
 import 'package:application/screens/auth/reset_password.dart';
@@ -17,6 +18,7 @@ class RouteNames {
   static const ask = "ask";
   static const chat = "chat";
   static const histories = "histories";
+  static const aiChat = "ai_chat";
 }
 
 final Map<String, Widget> routes = {
@@ -27,6 +29,7 @@ final Map<String, Widget> routes = {
   RouteNames.resetPassword: const ResetPasswordScreen(),
   RouteNames.home: const HomeScreen(),
   RouteNames.histories: const HistoriesScreen(),
+  RouteNames.aiChat: const AiChat(),
 };
 
 Map<String, Widget Function(BuildContext)> routeBuilder() {
