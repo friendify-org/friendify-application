@@ -8,17 +8,22 @@ class ChatFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      left: false,
-      right: false,
-      bottom: true,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
-          gradient: AppTheme.theme.backgroundColor,
-        ),
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.only(top: 16, left: 20, right: 20),
+      decoration: BoxDecoration(
+        gradient: AppTheme.theme.backgroundColor,
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x26000000),
+            blurRadius: 8,
+            offset: Offset(0, -1),
+            spreadRadius: 0,
+          )
+        ],
+      ),
+      child: SafeArea(
+        top: false,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -70,11 +75,13 @@ class ChatFooterInput extends StatelessWidget {
                         .theme.chatFooterTheme.inputTheme.primaryTextColor,
                     fontWeight: FontWeight.w400),
                 decoration: InputDecoration(
-                  fillColor: Colors.transparent,
-                  border: InputBorder.none,
-                  hintText: "Aa...",
-                  hintStyle: H11.textStyle.copyWith(color: AppTheme.theme.chatFooterTheme.inputTheme.placeHolderColor, fontWeight: FontWeight.w400)
-                ),
+                    fillColor: Colors.transparent,
+                    border: InputBorder.none,
+                    hintText: "Aa...",
+                    hintStyle: H11.textStyle.copyWith(
+                        color: AppTheme
+                            .theme.chatFooterTheme.inputTheme.placeHolderColor,
+                        fontWeight: FontWeight.w400)),
               ),
             ),
             const SvgWidget(asset: "assets/images/send.svg"),

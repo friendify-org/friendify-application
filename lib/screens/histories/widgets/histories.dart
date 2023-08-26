@@ -24,12 +24,13 @@ class Histories extends StatelessWidget {
             ),
             Expanded(
               child: SingleChildScrollView(
-                child:
-                    Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  ...histories.map((history) {
-                    return HistoryWidget(data: history);
-                  })
-                ]),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ...histories.map((history) {
+                        return HistoryWidget(data: history);
+                      })
+                    ]),
               ),
             ),
           ],
