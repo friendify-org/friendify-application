@@ -1,7 +1,8 @@
 import 'package:application/bloc/messages/main.dart';
 import 'package:application/bloc/messages/messages_state.dart';
 import 'package:application/screens/ai_chat/widgets/example_messages.dart';
-import 'package:flutter/widgets.dart';
+import 'package:application/screens/ai_chat/widgets/message.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Messages extends StatelessWidget {
@@ -11,10 +12,17 @@ class Messages extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MessagesBloc, MessagesState>(
       builder: (context, state) {
-        if(state.messages.isEmpty) {
+        if (state.messages.isEmpty) {
           return const ExampleMessages();
         }
-        return const Text("Have data");
+        return Container(
+          margin: const EdgeInsets.only(top: 20),
+          child: SingleChildScrollView(
+            child: Column(children: [
+              ...state.messages.map((message) => Message(data: message))
+            ]),
+          ),
+        );
       },
     );
   }
