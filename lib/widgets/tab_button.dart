@@ -83,9 +83,7 @@ class _TabButtonState extends State<TabButton> {
 class TabButtonController extends ChangeNotifier {
   final TabButtonOptions options;
   late TabButtonOption _value;
-  OnChangeOption onChange = (TabButtonOption? value) {
-    debugPrint("value changed is: $value");
-  };
+  OnChangeOption onChange = (TabButtonOption? value) {};
 
   TabButtonController(
       {OnChangeOption? onChange,
