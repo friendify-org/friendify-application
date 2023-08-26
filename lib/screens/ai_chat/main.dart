@@ -12,6 +12,7 @@ class AiChat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final headerKey = GlobalKey();
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -19,21 +20,17 @@ class AiChat extends StatelessWidget {
         ),
       ],
       child: AppContainer(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: const Column(
-            children: [
-              SecondaryHeader(
-                child: H8(content: "AI Chat"),
-              ),
-              Expanded(child: Messages()),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: ChatFooter(),
-              )
-            ],
-          ),
+        header: SecondaryHeader(
+          child: H8(content: "AI Chat", key: headerKey,),
+        ),
+        child: const Column(
+          children: [
+            Expanded(child: Messages()),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: ChatFooter(),
+            )
+          ],
         ),
       ),
     );
