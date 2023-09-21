@@ -48,22 +48,23 @@ class _TabButtonState extends State<TabButton> {
           children: widget.controller.options.map((option) {
             return Expanded(
               child: AppButtonTheme(
-                buttonTheme: option.value == widget.controller.value.value
-                    ? AppTheme.theme.primaryButtonTheme
-                    : AppTheme.theme.inActiveButtonTheme,
+                buttonTheme: option.value != widget.controller.value.value
+                    ? AppTheme.theme.inActiveButtonTheme
+                    : AppTheme.theme.primaryButtonTheme,
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      boxShadow: option.value == widget.controller.value.value
-                          ? [
-                              const BoxShadow(
-                                color: Color(0x3F000000),
-                                blurRadius: 4,
-                                offset: Offset(2, 2),
-                                spreadRadius: 0,
-                              )
-                            ]
-                          : []),
+                    borderRadius: BorderRadius.circular(100),
+                    // boxShadow: option.value == widget.controller.value.value
+                    //     ? [
+                    //         const BoxShadow(
+                    //           color: Color(0x3F000000),
+                    //           blurRadius: 4,
+                    //           offset: Offset(2, 2),
+                    //           spreadRadius: 0,
+                    //         )
+                    //       ]
+                    //     : []
+                  ),
                   child: AppButton(
                     onPressed: () {
                       setState(() {

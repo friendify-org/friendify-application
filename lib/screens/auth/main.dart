@@ -37,8 +37,12 @@ class _AuthScreenState extends State<AuthScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 80),
-          Image.asset('assets/images/logo_full.png', width: 300),
+          SafeArea(
+            child: Container(),
+            top: true,
+            bottom: false,
+          ),
+          Image.asset('assets/images/logo_full.png', width: 250),
           const SizedBox(height: 30),
           FractionallySizedBox(
             widthFactor: 0.8,

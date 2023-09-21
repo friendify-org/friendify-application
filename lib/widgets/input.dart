@@ -74,7 +74,7 @@ class _AppInputState extends State<AppInput> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(vertical: 15),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: widget.label,
         ),
         TextField(
@@ -100,7 +100,7 @@ class _AppInputState extends State<AppInput> {
         ),
         widget.controller.errorText.isNotEmpty
             ? Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(5),
                 child: Text(
                   widget.controller.errorText,
                   style: (widget.errorStyle ?? BodySmall.textStyle).copyWith(

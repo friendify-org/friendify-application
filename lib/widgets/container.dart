@@ -22,14 +22,16 @@ class AppContainer extends StatelessWidget {
                   builder: (BuildContext context, BoxConstraints constraints) {
                 return SingleChildScrollView(
                   physics: const BouncingScrollPhysics(
-                      parent: NeverScrollableScrollPhysics()),
+                    parent: NeverScrollableScrollPhysics(),
+                  ),
                   child: AppButtonTheme(
                     buttonTheme: AppTheme.theme.primaryButtonTheme,
-                    child: SizedBox(
-                      width: constraints.maxWidth,
-                      height: constraints.maxHeight,
-                      child: child,
-                    ),
+                    child: child,
+                    // child: SizedBox(
+                    //   width: constraints.maxWidth,
+                    //   height: constraints.maxHeight,
+                    //   child: child,
+                    // ),
                   ),
                 );
               }),

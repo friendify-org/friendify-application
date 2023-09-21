@@ -2,6 +2,7 @@ import 'package:application/theme/main.dart' as t;
 import 'package:application/widgets/heading.dart';
 import 'package:application/widgets/svg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppButtonTheme extends InheritedWidget {
   final t.ButtonTheme buttonTheme;
@@ -47,11 +48,8 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.transparent,
-            elevation: 0,
             shadowColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(100),
-            ),
+            elevation: 0.0,
           ),
           child: HeadingTheme(
             color: buttonTheme.textColor,
