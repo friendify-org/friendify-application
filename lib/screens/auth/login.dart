@@ -1,3 +1,5 @@
+import 'package:application/data/repository/user.dart';
+import 'package:application/schema/user.dart';
 import 'package:application/screens/auth/widgets/apple_button.dart';
 import 'package:application/screens/auth/widgets/google_button.dart';
 import 'package:application/screens/auth/widgets/line.dart';
@@ -70,7 +72,11 @@ class _LoginTabState extends State<LoginTab> {
             height: 45,
             child: AppButton(
               onPressed: () {
-                formController.validate();
+                if (formController.validate()) {
+                  UserRepository.login(
+                    LoginRequest.fromJson(formController.json),
+                  );
+                }
               },
               child: const H10(content: "LOGIN"),
             ),

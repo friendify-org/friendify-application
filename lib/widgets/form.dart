@@ -1,3 +1,4 @@
+import 'package:application/schema/main.dart';
 import 'package:application/widgets/input.dart';
 import 'package:flutter/material.dart';
 
@@ -25,8 +26,8 @@ class FormController extends ChangeNotifier {
     return isValidForm;
   }
 
-  Map<String, String> get json {
-    Map<String, String> result = {};
+  Json get json {
+    Json result = {};
     controllers.forEach((key, value) {
       result[key] = controllers[key]?.text ?? "";
     });

@@ -20,3 +20,23 @@ Map<String, dynamic> _$UserSchemaToJson(UserSchema instance) =>
       'phoneNumber': instance.phoneNumber,
       'avatar': instance.avatar,
     };
+
+LoginRequest _$LoginRequestFromJson(Map<String, dynamic> json) => LoginRequest(
+      email: json['email'] as String? ?? "",
+      password: json['password'] as String? ?? "",
+    );
+
+Map<String, dynamic> _$LoginRequestToJson(LoginRequest instance) =>
+    <String, dynamic>{
+      'email': instance.email,
+      'password': instance.password,
+    };
+
+LoginResult _$LoginResultFromJson(Map<String, dynamic> json) => LoginResult(
+      accessToken: json['access_token'] as String? ?? "",
+    );
+
+Map<String, dynamic> _$LoginResultToJson(LoginResult instance) =>
+    <String, dynamic>{
+      'access_token': instance.accessToken,
+    };
