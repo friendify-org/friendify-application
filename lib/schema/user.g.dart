@@ -40,3 +40,17 @@ Map<String, dynamic> _$LoginResultToJson(LoginResult instance) =>
     <String, dynamic>{
       'access_token': instance.accessToken,
     };
+
+LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
+    LoginResponse(
+      data: ResponseData<LoginResult>.fromJson(
+          json['data'] as Map<String, dynamic>),
+    )..messages = (json['messages'] as List<dynamic>)
+        .map((e) => ResponseMessage.fromJson(e as Map<String, dynamic>))
+        .toList();
+
+Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
+    <String, dynamic>{
+      'messages': instance.messages,
+      'data': instance.data,
+    };

@@ -1,4 +1,4 @@
-import 'package:application/schema/response.dart';
+import 'package:application/schema/main.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';
@@ -50,8 +50,15 @@ class LoginResult {
 
   LoginResult({this.accessToken = ""});
 
-  factory LoginResult.fromJsn(Map<String, dynamic> json) =>
+  factory LoginResult.fromJson(Map<String, dynamic> json) =>
       _$LoginResultFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoginResultToJson(this);
+}
+
+@JsonSerializable()
+class LoginResponse extends Response<LoginResult> {
+  LoginResponse({required super.data});
+
+  factory LoginResponse.fromJson(Json json) => _$LoginResponseFromJson(json);
 }

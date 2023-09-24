@@ -1,11 +1,12 @@
 import 'package:application/data/repository/user.dart';
-import 'package:application/schema/user.dart';
+import 'package:application/schema/main.dart';
 import 'package:application/screens/auth/widgets/apple_button.dart';
 import 'package:application/screens/auth/widgets/google_button.dart';
 import 'package:application/screens/auth/widgets/line.dart';
 import 'package:application/screens/auth/widgets/remember.dart';
 import 'package:application/screens/main.dart';
 import 'package:application/theme/main.dart';
+import 'package:application/utils/messages.dart';
 import 'package:application/utils/validator.dart';
 import 'package:application/widgets/body.dart';
 import 'package:application/widgets/button.dart';
@@ -75,7 +76,11 @@ class _LoginTabState extends State<LoginTab> {
                 if (formController.validate()) {
                   UserRepository.login(
                     LoginRequest.fromJson(formController.json),
-                  );
+                  ).then((_) {
+                    Navigator.of(context).pushNamed(RouteNames.home);
+                  }).catchError((error) {
+                    formController.throwGlobalError(messageBuilder(error));
+                  });
                 }
               },
               child: const H10(content: "LOGIN"),
@@ -85,9 +90,9 @@ class _LoginTabState extends State<LoginTab> {
         const SizedBox(height: 20),
         const Line(),
         const SizedBox(height: 20),
-        GoogleButton(),
+        const GoogleButton(),
         const SizedBox(height: 10),
-        AppleButton()
+        const AppleButton()
       ],
     );
   }

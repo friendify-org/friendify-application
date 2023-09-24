@@ -1,6 +1,6 @@
 import 'dart:convert';
+
 import 'package:application/data/repository/config.dart';
-import 'package:application/schema/config.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -10,12 +10,26 @@ typedef Query = Map<String, dynamic>;
 typedef Params = Map<String, String>;
 typedef Body = Map<String, dynamic>;
 
-class ApiCaller {
+class ApiCaller { // Define api caller for utils call api
   String baseUrl;
   ApiCaller({this.baseUrl = ""});
 
   String _decodePathWithParams(String path, Params params) {
-    return "";
+    // Replace string :paramName with parmas[paramName]
+    String result = "";
+    path.split("/").forEach((element) {
+      if (element.isNotEmpty) {
+        result += "/";
+      }
+
+      if (element.isNotEmpty && element[0] == ":") {
+        result += params[element[0].substring(1)] ?? "";
+      } else {
+        result += element;
+      }
+    });
+
+    return result;
   }
 
   Future<http.Response> get(String path, Query query, Params params) async {
@@ -33,16 +47,21 @@ class ApiCaller {
     );
   }
 
-  Future<http.Response> post({String path = "", Body body = const {}, Params params = const {}}) async {
+  Future<http.Response> post(
+      {String path = "",
+      Body body = const {},
+      Params params = const {}}) async {
     Uri uri = Uri.parse(baseUrl + _decodePathWithParams(path, params));
 
     final config = await ConfigRepository.data;
-    debugPrint("uri is: ${uri.toString()}");
+
+    debugPrint("body is: $body");
 
     return http.post(
       uri,
       headers: {
         "Authorization": "Bearer ${config.accessToken}",
+        "Content-Type": "application/json"
       },
       body: jsonEncode(body),
     );
