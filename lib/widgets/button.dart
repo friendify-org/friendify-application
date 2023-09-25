@@ -1,8 +1,10 @@
+import 'package:application/screens/main.dart';
 import 'package:application/theme/main.dart' as t;
 import 'package:application/widgets/heading.dart';
 import 'package:application/widgets/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 class AppButtonTheme extends InheritedWidget {
   final t.ButtonTheme buttonTheme;
@@ -75,6 +77,39 @@ class GoBackButton extends StatelessWidget {
         color: t.AppTheme.theme.primaryTextColor,
         width: 24,
         height: 24,
+      ),
+    );
+  }
+}
+
+class MenuButton extends StatelessWidget {
+  const MenuButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(RouteNames.profile);
+      },
+      child: Image.asset("assets/images/menu_icon.png", width: 30),
+    );
+  }
+}
+
+class NotificationButton extends StatelessWidget {
+  const NotificationButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      "assets/images/notification.svg",
+      colorFilter: ColorFilter.mode(
+        t.AppTheme.theme.primaryTextColor,
+        BlendMode.srcIn,
       ),
     );
   }

@@ -11,6 +11,9 @@ UserSchema _$UserSchemaFromJson(Map<String, dynamic> json) => UserSchema(
       fullName: json['fullName'] as String,
       phoneNumber: json['phoneNumber'] as String,
       avatar: json['avatar'] as String,
+      referralCode: json['referralCode'] as String,
+      email: json['email'] as String,
+      dayOfBirth: DateTime.parse(json['dayOfBirth'] as String),
     );
 
 Map<String, dynamic> _$UserSchemaToJson(UserSchema instance) =>
@@ -19,6 +22,9 @@ Map<String, dynamic> _$UserSchemaToJson(UserSchema instance) =>
       'fullName': instance.fullName,
       'phoneNumber': instance.phoneNumber,
       'avatar': instance.avatar,
+      'referralCode': instance.referralCode,
+      'email': instance.email,
+      'dayOfBirth': instance.dayOfBirth.toIso8601String(),
     };
 
 LoginRequest _$LoginRequestFromJson(Map<String, dynamic> json) => LoginRequest(

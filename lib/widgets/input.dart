@@ -113,3 +113,33 @@ class _AppInputState extends State<AppInput> {
     );
   }
 }
+
+class FakeInput extends StatelessWidget {
+  final String label;
+  final String content;
+
+  const FakeInput({super.key, required this.label, required this.content});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          BodySmall(content: label),
+          SizedBox(height: 10),
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: AppTheme.theme.inputTheme.backgroundColor,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: BodySmall(content: content),
+          )
+        ],
+      ),
+    );
+  }
+}

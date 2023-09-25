@@ -5,6 +5,7 @@ import 'package:application/screens/auth/reset_password.dart';
 import 'package:application/screens/auth/verify_code.dart';
 import 'package:application/screens/histories/main.dart';
 import 'package:application/screens/home/main.dart';
+import 'package:application/screens/profile/main.dart';
 import 'package:application/screens/wellcome/main.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class RouteNames {
   static const chat = "chat";
   static const histories = "histories";
   static const aiChat = "ai_chat";
+  static const profile = "profile";
 }
 
 final Map<String, Widget> routes = {
@@ -30,6 +32,7 @@ final Map<String, Widget> routes = {
   RouteNames.home: const HomeScreen(),
   RouteNames.histories: const HistoriesScreen(),
   RouteNames.aiChat: const AiChat(),
+  RouteNames.profile: const ProfileScreen(),
 };
 
 Map<String, Widget Function(BuildContext)> routeBuilder() {

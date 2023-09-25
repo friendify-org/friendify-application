@@ -8,7 +8,7 @@ class DiamondWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 13),
       decoration: BoxDecoration(
         gradient: AppTheme.theme.primaryButtonTheme.backgroundColor,
         borderRadius: BorderRadius.circular(15),
@@ -20,7 +20,8 @@ class DiamondWidget extends StatelessWidget {
           HeadingTheme(
             color: AppTheme.theme.primaryButtonTheme.textColor,
             child: const H11(content: "12345"),
-            ),
+          ),
+          SizedBox(width: 5),
           Image.asset("assets/images/diamond.png", width: 20)
         ],
       ),

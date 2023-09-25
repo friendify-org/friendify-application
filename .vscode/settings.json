@@ -2,5 +2,6 @@
     "cmake.configureOnOpen": true,
     "cSpell.words": [
         "dotenv"
-    ]
+    ],
+    "cmake.sourceDirectory": "/Users/teamdev/Documents/hoaian_dev/friendify/friendify-application/linux"
 }
