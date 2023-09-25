@@ -66,8 +66,41 @@ class LoginResult {
 }
 
 @JsonSerializable()
-class LoginResponse extends Response<LoginResult> {
-  LoginResponse({required super.data});
+class LoginResponseData extends ResponseData {
+  LoginResult result;
+
+  LoginResponseData({required this.result});
+
+  factory LoginResponseData.fromJson(Json json) =>
+      _$LoginResponseDataFromJson(json);
+}
+
+@JsonSerializable()
+class LoginResponse extends Response {
+  LoginResponseData data;
+
+  LoginResponse({
+    required this.data,
+  });
 
   factory LoginResponse.fromJson(Json json) => _$LoginResponseFromJson(json);
+}
+
+@JsonSerializable()
+class GetProfileResponseData extends ResponseData {
+  UserSchema result;
+
+  GetProfileResponseData({required this.result});
+
+  factory GetProfileResponseData.fromJson(Json json) => _$GetProfileResponseDataFromJson(json);
+}
+
+@JsonSerializable()
+class GetProfileResponse extends Response {
+  GetProfileResponseData data;
+
+  GetProfileResponse({required this.data});
+
+  factory GetProfileResponse.fromJson(Json json) =>
+      _$GetProfileResponseFromJson(json);
 }

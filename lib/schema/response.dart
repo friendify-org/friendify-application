@@ -23,34 +23,17 @@ class ResponseMessage {
   Map<String, dynamic> toJson() => _$ResponseMessageToJson(this);
 }
 
-@JsonSerializable(explicitToJson: true)
-class ResponseData<T> {
+class ResponseData {
   int total;
   int limit;
   int offset;
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  T? result;
-
-  ResponseData({
-    this.total = 0,
-    this.limit = 0,
-    this.offset = 0,
-    this.result,
-  });
-
-  factory ResponseData.fromJson(Json json) => _$ResponseDataFromJson(json);
-
-  Json toJson() => _$ResponseDataToJson(this);
+  ResponseData(
+      {this.total = 0, this.limit = 0, this.offset = 0});
 }
 
-@JsonSerializable(explicitToJson: true)
-class Response<T> {
+class Response {
   List<ResponseMessage> messages;
-  ResponseData<T> data;
 
-  Response({this.messages = const [], required this.data});
-
-  factory Response.fromJson(Json json) => _$ResponseFromJson(json);
-  Json toJson() => _$ResponseToJson(this);
+  Response({this.messages = const []});
 }

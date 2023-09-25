@@ -12,6 +12,12 @@ class UserApi extends ApiCaller {
     http.Response response = await post(path: "/login", body: data.toJson());
     return response;
   }
+
+  Future<http.Response> getProfile() async {
+    http.Response response = await get(path: "/profile");
+    return response;
+  }
+
 }
 
 final userApi = UserApi();

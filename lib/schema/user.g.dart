@@ -47,15 +47,62 @@ Map<String, dynamic> _$LoginResultToJson(LoginResult instance) =>
       'access_token': instance.accessToken,
     };
 
+LoginResponseData _$LoginResponseDataFromJson(Map<String, dynamic> json) =>
+    LoginResponseData(
+      result: LoginResult.fromJson(json['result'] as Map<String, dynamic>),
+    )
+      ..total = json['total'] as int
+      ..limit = json['limit'] as int
+      ..offset = json['offset'] as int;
+
+Map<String, dynamic> _$LoginResponseDataToJson(LoginResponseData instance) =>
+    <String, dynamic>{
+      'total': instance.total,
+      'limit': instance.limit,
+      'offset': instance.offset,
+      'result': instance.result,
+    };
+
 LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
     LoginResponse(
-      data: ResponseData<LoginResult>.fromJson(
-          json['data'] as Map<String, dynamic>),
+      data: LoginResponseData.fromJson(json['data'] as Map<String, dynamic>),
     )..messages = (json['messages'] as List<dynamic>)
         .map((e) => ResponseMessage.fromJson(e as Map<String, dynamic>))
         .toList();
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
+    <String, dynamic>{
+      'messages': instance.messages,
+      'data': instance.data,
+    };
+
+GetProfileResponseData _$GetProfileResponseDataFromJson(
+        Map<String, dynamic> json) =>
+    GetProfileResponseData(
+      result: UserSchema.fromJson(json['result'] as Map<String, dynamic>),
+    )
+      ..total = json['total'] as int
+      ..limit = json['limit'] as int
+      ..offset = json['offset'] as int;
+
+Map<String, dynamic> _$GetProfileResponseDataToJson(
+        GetProfileResponseData instance) =>
+    <String, dynamic>{
+      'total': instance.total,
+      'limit': instance.limit,
+      'offset': instance.offset,
+      'result': instance.result,
+    };
+
+GetProfileResponse _$GetProfileResponseFromJson(Map<String, dynamic> json) =>
+    GetProfileResponse(
+      data:
+          GetProfileResponseData.fromJson(json['data'] as Map<String, dynamic>),
+    )..messages = (json['messages'] as List<dynamic>)
+        .map((e) => ResponseMessage.fromJson(e as Map<String, dynamic>))
+        .toList();
+
+Map<String, dynamic> _$GetProfileResponseToJson(GetProfileResponse instance) =>
     <String, dynamic>{
       'messages': instance.messages,
       'data': instance.data,

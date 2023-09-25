@@ -18,13 +18,23 @@ class UserRepository {
     if (rawResponse.statusCode == 400) {
       throw response.messages[0];
     }
-    response.data.result =
-        LoginResult.fromJson(jsonDecode(rawResponse.body)["data"]["result"]);
     Config data = await ConfigRepository.data;
     data.accessToken = response.data.result!.accessToken;
     ConfigRepository.update = data;
     await ConfigRepository.save();
     debugPrint("response is: ${response.data.result}");
+    return response;
+  }
+
+  static Future<GetProfileResponse> getProfile() async {
+    http.Response rawResponse = await userApi.getProfile();
+
+    if (rawResponse.statusCode == 401) {}
+
+    GetProfileResponse response = GetProfileResponse.fromJson(
+      jsonDecode(rawResponse.body),
+    );
+
     return response;
   }
 }

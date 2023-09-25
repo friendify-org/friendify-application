@@ -10,7 +10,8 @@ typedef Query = Map<String, dynamic>;
 typedef Params = Map<String, String>;
 typedef Body = Map<String, dynamic>;
 
-class ApiCaller { // Define api caller for utils call api
+class ApiCaller {
+  // Define api caller for utils call api
   String baseUrl;
   ApiCaller({this.baseUrl = ""});
 
@@ -32,7 +33,10 @@ class ApiCaller { // Define api caller for utils call api
     return result;
   }
 
-  Future<http.Response> get(String path, Query query, Params params) async {
+  Future<http.Response> get(
+      {String path = "",
+      Query query = const {},
+      Params params = const {}}) async {
     Uri uri = Uri.parse(baseUrl + _decodePathWithParams(path, params));
     uri.replace(queryParameters: query);
     debugPrint("uri is: ${uri.toString()}");
